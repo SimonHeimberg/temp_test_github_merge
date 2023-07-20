@@ -1,0 +1,35 @@
+name: checking workflow functionality
+concurrency:
+  group: checking-${{ github.ref }}
+  cancel-in-progress: true
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+  push:
+
+jobs:
+  simple-checks:
+    name: run simple checks
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: action/checkout@v3
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+    - name: Check for changed files
+      uses: dorny/paths-filter@v2
+      id: changed_files
+      with:
+        filters: |
+          shell:
+            - added|modified: '**.sh'
+            - added|modified: '**.bash'
+          yaml:
+            - added|modified: '**.yml'
+            - added|modified: '**.yaml'
+        list-files: shell
+    - name: Lint yaml
+      run: yamllint ${{ steps.filter_files.outputs.yaml_files }}
+    - name: Shellcheck
+      run: shellcheck ${{ steps.filter_files.outputs.shell_files }}
