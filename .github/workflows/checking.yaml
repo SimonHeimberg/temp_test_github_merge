@@ -30,6 +30,6 @@ jobs:
             - added|modified: '**.yaml'
         list-files: shell
     - name: Lint yaml
-      run: yamllint ${{ steps.filter_files.outputs.yaml_files }}
+      run: yamllint ${{ steps.changed_files.outputs.yaml_files }}
     - name: Shellcheck
-      run: shellcheck ${{ steps.filter_files.outputs.shell_files }}
+      run: shellcheck ${{ steps.changed_files.outputs.shell_files }}
