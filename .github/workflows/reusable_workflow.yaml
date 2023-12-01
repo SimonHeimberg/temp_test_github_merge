@@ -1,0 +1,13 @@
+name: reusable workflow
+on:
+  workflow_call:
+
+jobs:
+  job1:
+    runs-on: ubuntu
+    steps:
+      - run: echo job 1
+  job2:
+    runs-on: ubuntu
+    steps:
+      - run: echo job 2
