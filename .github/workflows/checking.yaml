@@ -33,3 +33,6 @@ jobs:
       run: yamllint ${{ steps.changed_files.outputs.yaml_files }}
     - name: Shellcheck
       run: shellcheck ${{ steps.changed_files.outputs.shell_files }}
+
+  check-reusable:
+    uses: ./.github/workflows/reusable_workflow.yaml
