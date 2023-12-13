@@ -4,10 +4,10 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - run: echo job 1
   job2:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - run: echo job 2
