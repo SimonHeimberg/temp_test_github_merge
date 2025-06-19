@@ -2,12 +2,15 @@ name: reusable workflow
 on:
   workflow_call:
   workflow_dispatch:
+    inputs:
+      inp1:
+        type: branch
 
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo job 1
+      - run: echo job 1 -- ${{ github.ref }}
   job2:
     runs-on: ubuntu-latest
     steps:
