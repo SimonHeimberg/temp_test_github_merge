@@ -12,6 +12,7 @@ jobs:
     steps:
       - run: echo job 1 -- ${{ github.ref }}
       - run: echo 1. form j1 >> "$GITHUB_STEP_SUMMARY"
+      - run: 'printf "ansi escape: \33[31in read\nnext line\n"'
   job2:
     runs-on: ubuntu-latest
     steps:
