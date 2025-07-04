@@ -15,7 +15,7 @@ jobs:
       - run: 'printf "ansi escape: \33[31min read\nnext line\n" | tee "$GITHUB_STEP_SUMMARY"'
       - run: echo ::notice title=a test note::some notice
       - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,title=on file::notice on file
-      - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,line=17,title=on file's line::notice on line
+      - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,line=17,title=on line of file::notice on line
   job2:
     runs-on: ubuntu-latest
     steps:
