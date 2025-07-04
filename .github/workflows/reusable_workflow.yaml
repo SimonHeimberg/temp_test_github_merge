@@ -16,6 +16,7 @@ jobs:
       - run: echo ::notice title=a test note::some notice
       - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,title=on file::notice on file
       - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,line=17,title=on line of file::notice on line
+      - run: echo ::notice file=.github/workflows/checking.yaml::on unrelated file
   job2:
     runs-on: ubuntu-latest
     steps:
