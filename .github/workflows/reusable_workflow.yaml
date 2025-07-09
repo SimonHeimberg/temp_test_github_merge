@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo job 2
-      - run: echo '<a href=#refJ2>by my ref</a> <a href=#user-content-refJ2>by adapted ref</a> <a href=#user-content-refj2>by case adapted ref</a>' >> "$GITHUB_STEP_SUMMARY"
+      - run: echo '<a href=#refJ2>by my ref</a> <a href=#user-content-refJ2>by adapted ref</a> <a href=#user-content-refj2>by case adapted ref</a> [md link](#refJ2)' >> "$GITHUB_STEP_SUMMARY"
       - run: echo 1. form j2 >> "$GITHUB_STEP_SUMMARY"
       - run: echo runner name = $RUNNER_NAME >> "$GITHUB_STEP_SUMMARY"
       - run: echo '<a name=refInBoth></a>' >> "$GITHUB_STEP_SUMMARY"
