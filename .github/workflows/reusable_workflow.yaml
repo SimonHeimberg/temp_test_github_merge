@@ -14,6 +14,7 @@ jobs:
       - run: echo 1. form j1 >> "$GITHUB_STEP_SUMMARY"
       - run: 'printf "ansi escape: \33[31min read\nnext line\n" | tee "$GITHUB_STEP_SUMMARY"'
       - run: echo '<a name=refInBoth></a>' >> "$GITHUB_STEP_SUMMARY"
+      - run: echo '<a name=abc/de_f/gh.ij:22></a>anchor with path chars' >> "$GITHUB_STEP_SUMMARY"
       - run: echo ::notice title=a test note::some notice
       - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,title=on file::notice on file
       - run: echo ::notice file=.github/workflows/reusable_workflow.yaml,line=17,title=on line of file::notice on line
