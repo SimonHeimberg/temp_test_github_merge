@@ -42,7 +42,7 @@ jobs:
       J_1_XX: ${{ steps.st1.outputs['J_1_XX'] }}
       J_2_XX: ${{ steps.st1.outputs['J_2_XX'] }}
       J_3_XX: ${{ steps.st1.outputs['J_3_XX'] }}
-      J_3_NAME: TODO_if_desired
+      J_3_NAME: TODO_if_desired, checking idx ${{ strategy.job-index }}
     steps:
     - name: s1
       id: st1
