@@ -29,3 +29,24 @@ jobs:
       - run: echo '<a name=refInBoth></a>' >> "$GITHUB_STEP_SUMMARY"
       - run: echo '## title from job 2' >> "$GITHUB_STEP_SUMMARY"
       - run: echo '<a name=refJ2></a>' >> "$GITHUB_STEP_SUMMARY"
+      
+  job_m:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        el1: [11, 12]
+        el2: [aa, bb]
+    outputs:
+      J_${{ strategy.job-index }}_XX: ${{ steps.st1.outputs.XX }}
+      J_${{ strategy.job-index }}_NAME: TODO_if_desired
+    steps:
+    - name: s1
+      id: st1
+      run: echo XX=x >> $GITHUB_OUTPUT
+  job_cm:
+    runs-on: ubuntu-latest
+    needs: [job_m]
+    env:
+      OUTP: ${{ needs.job_m.outputs }}
+    steps:
+      - run: echo "$OUTP"
