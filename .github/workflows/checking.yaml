@@ -18,7 +18,7 @@ jobs:
         fetch-depth: 0
         persist-credentials: false
     - name: Check for changed files
-      uses: dorny/paths-filter@v2
+      uses: dorny/paths-filter@v3
       id: changed_files
       with:
         filters: |
