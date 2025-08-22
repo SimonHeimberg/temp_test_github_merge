@@ -1,0 +1,10 @@
+# configure dependency checking on github
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    # check dependencies of github actions for updates
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
